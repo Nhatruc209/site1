@@ -41,6 +41,5 @@ def delete_home(request, id):
         home = Home.objects.get(id=id)
         home.delete()
     except Home.DoesNotExist:
-        # Nếu không tìm thấy thì bỏ qua, không báo lỗi
         pass
     return redirect('home')

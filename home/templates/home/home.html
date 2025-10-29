@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css"/>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css"/>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
     <meta charset="UTF-8">
     <title>App</title>
 </head>
@@ -58,8 +60,8 @@
                 <td>{{ i.luot_xem }}</td>
                 <td>{{ i.get_status_display }}</td>
                 <td>
-                    <a href="{% url 'edit_home' i.id %}">Sửa</a> |
-                    <a href="{% url 'delete_home' i.id %}" style="color:red;">Xóa</a>
+                    <a href="{% url 'edit_home' i.id %}" style="color:red">Sửa</a> |
+                    <a href="{% url 'delete_home' i.id %}" style="color:red; ">Xóa</a>
                 </td>
                 
             </tr>
