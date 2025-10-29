@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css"/>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+    <meta charset="UTF-8">
+    <title>App</title>
+</head>
+<body>
+    <h1>Thêm mới dữ liệu</h1>
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Lưu</button>
+    </form>
+
+    <hr>
+
+    <h2>Danh sách dữ liệu</h2>
+    <table id="homeTable" class="display" width="100%" cellspacing="0" >
+        <thead>
+            <tr>
+                <th>Tên</th>
+                <th>Mô tả</th>
+                <th>Tags</th>
+                <th>Hình ảnh</th>
+                <th>Ngày tạo</th>
+                <th>Địa chỉ</th>
+                <th>Tọa độ</th>
+                <th>Lượt xem</th>
+                <th>Trạng thái</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in items %}
+            <tr>
+                <td>{{ i.ten }}</td>
+                <td>{{ i.mo_ta }}</td>
+                <td>{{ i.tags }}</td>
+                <td>
+                    {% if i.hinh_anh %}
+                        <img src="{{ i.hinh_anh.url }}" alt="{{ i.ten }}" width="80">
+                    {% else %}
+                        Không có
+                    {% endif %}
+                </td>
+                <td>{{ i.ngay_tao|date:"d/m/Y H:i" }}</td>
+                <td>{{ i.dia_chi }}</td>
+                <td>
+                    {% if i.lat and i.lon %}
+                        {{ i.lat|floatformat:4 }}, {{ i.lon|floatformat:4 }}
+                    {% else %}
+                        -
+                    {% endif %}
+                </td>
+                <td>{{ i.luot_xem }}</td>
+                <td>{{ i.get_status_display }}</td>
+                <td>
+                    <a href="{% url 'edit_home' i.id %}">Sửa</a> |
+                    <a href="{% url 'delete_home' i.id %}" style="color:red;">Xóa</a>
+                </td>
+                
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+<script>
+    $(document).ready(function() {
+        $('#homeTable').DataTable();
+    });
+  </script>

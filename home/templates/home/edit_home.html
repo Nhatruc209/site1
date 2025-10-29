@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Sửa dữ liệu</title>
+</head>
+<body>
+  <h2>Sửa dữ liệu</h2>
+
+  <form method="POST">
+    {% csrf_token %}
+    <label>Tên:</label><br>
+    <input type="text" name="name" value="{{ record.name }}"><br><br>
+
+    <label>Email:</label><br>
+    <input type="email" name="email" value="{{ record.email }}"><br><br>
+
+    <button type="submit">Lưu lại</button>
+  </form>
+
+  <br>
+  <a href="{% url 'home' %}">← Quay lại trang chính</a>
+</body>
+</html>
