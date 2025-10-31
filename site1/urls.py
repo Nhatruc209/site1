@@ -6,9 +6,9 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.home_view, name='home'),
-    path('edit/<int:id>/', views.edit_home, name='edit_home'),
-    path('delete/<int:id>/', views.delete_home, name='delete_home'),
+    path('', views.home_view, name='home_view'),
+    path('edit/<int:home_id>/', views.edit_home, name='edit_home'),
+    path('delete/<int:home_id>/', views.delete_home, name='delete_home'),
 ]
 
 
