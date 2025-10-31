@@ -71,7 +71,7 @@
 
                         </div>
 
-                        <button type="submit" class="btn btn-primary">{% if home %}Cập nhật{% else %}Submit{% endif %}</button>
+                        <button type="submit" class="btn btn-primary">{% if home %}Cập nhật{% else %}Lưu{% endif %}</button>
                     </form>
                 </div>
             </div>
@@ -83,7 +83,7 @@
     <h2>Danh sách dữ liệu</h2>
                                     <div class="live-preview">
                                         <div class="table-responsive table-card">
-                                            <div id="fixed-header_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer"><div class="row"><div class="col-sm-12 col-md-6"><div class="dataTables_length" id="fixed-header_length"><label>Show <select name="fixed-header_length" aria-controls="fixed-header" class="form-select form-select-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div></div><div class="col-sm-12 col-md-6"><div id="fixed-header_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control form-control-sm" placeholder="" aria-controls="fixed-header"></label></div></div></div><div class="row"><div class="col-sm-12"><table id="fixed-header" class="dt-responsive nowrap table-striped align-middle dataTable no-footer  collapsed" style="width: 100%;" aria-describedby="fixed-header_info">
+                                            <div id="fixed-header_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer"><div class="row"><div class="col-sm-12 col-md-6"><div class="dataTables_length" id="fixed-header_length"><label>Show <select name="fixed-header_length" aria-controls="fixed-header" class="form-select form-select-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div></div><div class="col-sm-12 col-md-6"><div id="fixed-header_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control form-control-sm" placeholder="" aria-controls="fixed-header"></label></div></div></div><div class="row"><div class="col-sm-12"><table id="fixed-header" class="dt-responsive nowrap table-striped align-middle collapsed" style="width: 100%;" aria-describedby="fixed-header_info">
 
                                             <table class="table align-middle table-nowrap table-striped-columns mb-0">
                                                 <thead class="table-light">
@@ -149,13 +149,20 @@
                                             </table>
                                         </div>
                                     </div>
-                
-     <script>
-        $(document).ready(function() {
-            $('#homeTable').DataTable();
-        });
-    </script>
+{#  Chart  #}
 
+  <div class="row">
+                        <div class="col-xl-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title mb-0">Basic Line Chart</h4>
+                                </div><!-- end card header -->
+
+                                <div class="card-body">
+                                    <div id="line_chart_basic" data-colors='["--vz-primary"]' class="apex-charts" dir="ltr"></div>
+                                </div><!-- end card-body -->
+                            </div><!-- end card -->
+                        </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>

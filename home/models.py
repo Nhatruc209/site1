@@ -14,10 +14,8 @@ class Home(models.Model):
     dia_chi = models.CharField(max_length=255, blank=True)
     luot_xem = models.PositiveIntegerField(default=0)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='0')
-    #  Trường lưu kết quả từ Nominatim
     lat = models.FloatField(null=True, blank=True)   
     lon = models.FloatField(null=True, blank=True) 
-
 
     def __str__(self):
         return self.ten
