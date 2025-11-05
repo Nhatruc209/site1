@@ -36,7 +36,9 @@ def home_view(request):
         messages.success(request, "Thêm dữ liệu thành công!")
         return redirect('home_view')  
     items = Home.objects.all().order_by('-ngay_tao')  
-    return render(request, 'home/home.html', {'items': items})
+    labels=[home.ten for home in items]
+    values=[home.mo_ta for home in items]
+    return render(request, 'home/home.html', {'items': items, 'labels': labels, 'values': values})
 
 # Edit_home
 def edit_home(request, home_id):
@@ -72,3 +74,17 @@ def delete_home(request, home_id):
     home.delete()
     messages.success(request, "Xóa thành công!")
     return redirect('home_view')
+
+   # Lấy danh sách Home
+    items = Home.objects.all().order_by('-ngay_tao')
+
+    # Lấy tên và độ dài mô tả để vẽ chart
+    labels = [home.ten for home in items]
+    values = [len(home.mo_ta) for home in items]  # ví dụ: độ dài mô tả
+
+    return render(request, 'home/home.html', {
+        'items': items,
+        'labels': labels,
+        'values': values,
+    })
+
