@@ -163,9 +163,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   const labels = {{ labels|safe|default:"[]" }};
   const values = {{ values|safe|default:"[]" }};
-
-  console.log("labels:", labels);
-  console.log("values:", values);
     var options = {
     chart: {
         type: 'line'
